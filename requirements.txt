@@ -1,0 +1,6 @@
+# simlab 실습 패키지 (확인한 버전: Python 3.12/3.13, Linux)
+mujoco==3.17.0                   # 물리 엔진 (엔진이 pip 패키지 안에 들어 있음)
+gymnasium[classic-control]==1.4.0   # 환경 규칙 reset·step + 내장 CartPole-v1 (창 띄우기용 pygame 포함)
+torch>=2.2                       # Q-network (PyTorch)
+matplotlib>=3.7                  # 학습 곡선·궤적 그래프 (그림 저장용 Pillow 포함)
+numpy

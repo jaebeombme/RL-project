@@ -1,0 +1,32 @@
+<!-- 3단계: 막대 추가 (카트 안의 body + hinge 관절) -->
+<mujoco model="step3_pole">
+  <option timestep="0.01" integrator="RK4"/>
+  <visual>
+    <global offwidth="1280" offheight="720"/>
+  </visual>
+  <asset>
+    <texture name="sky" type="skybox" builtin="gradient" rgb1=".85 .92 1" rgb2="1 1 1" width="256" height="256"/>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".92 .92 .92" rgb2=".82 .82 .82" width="256" height="256"/>
+    <material name="grid" texture="grid" texrepeat="12 6"/>
+  </asset>
+  <worldbody>
+    <light pos="0 -3 5" dir="0 .5 -1" directional="true"/>
+    <camera name="side" pos="0 -4.2 1.9" xyaxes="1 0 0 0 .2 1" fovy="45"/>
+    <geom name="floor" type="plane" size="6 3 .1" material="grid"/>
+    <!-- 레일: 보이기만, 충돌 끔 -->
+    <geom name="rail" type="capsule" fromto="-2.6 0 1 2.6 0 1" size=".015"
+          rgba=".5 .5 .5 1" contype="0" conaffinity="0"/>
+    <!-- 카트: x축으로만 미끄러지는 slide 관절 -->
+    <body name="cart" pos="0 0 1">
+      <joint name="slider" type="slide" axis="1 0 0" damping="0.05"/>
+      <geom name="cart" type="box" size=".2 .1 .07" mass="1.0"
+            rgba=".2 .45 .85 1" contype="0" conaffinity="0"/>
+      <!-- 막대: 카트 body 안의 자식 body + hinge 관절 -->
+      <body name="pole" pos="0 0 0">
+        <joint name="hinge" type="hinge" axis="0 1 0" damping="0.005"/>
+        <geom name="pole" type="capsule" fromto="0 0 0 0 0 1.0" size=".025"
+              mass="0.1" rgba=".95 .6 .15 1" contype="0" conaffinity="0"/>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
