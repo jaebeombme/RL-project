@@ -1,0 +1,107 @@
+{
+  "episodes": 300,
+  "common_success_count": 278,
+  "paired_finetuned_success_count": 300,
+  "models": {
+    "initial": {
+      "successes": 278,
+      "all_episodes": {
+        "elapsed_steps": 58.14666666666667,
+        "elapsed_time_s": 1.1540600000000005,
+        "torque_squared_integral": 62.78461012029334,
+        "normalized_effort": 1.2692945170737426,
+        "absolute_work_j": 25.89000322600417
+      },
+      "successful_episodes": {
+        "elapsed_steps": 57.381294964028775,
+        "elapsed_time_s": 1.1389280575539575,
+        "torque_squared_integral": 61.72783345573793,
+        "normalized_effort": 1.2431447508310434,
+        "absolute_work_j": 25.886399101538526
+      },
+      "common_success": {
+        "elapsed_steps": 57.381294964028775,
+        "elapsed_time_s": 1.1389280575539575,
+        "torque_squared_integral": 61.72783345573793,
+        "normalized_effort": 1.2431447508310434,
+        "absolute_work_j": 25.886399101538526
+      },
+      "success_wilson95": [
+        0.8914679042010732,
+        0.9510763688675256
+      ]
+    },
+    "time": {
+      "successes": 300,
+      "all_episodes": {
+        "elapsed_steps": 54.76,
+        "elapsed_time_s": 1.0863200000000008,
+        "torque_squared_integral": 76.8926510266904,
+        "normalized_effort": 1.6915675971455342,
+        "absolute_work_j": 36.058208441243835
+      },
+      "successful_episodes": {
+        "elapsed_steps": 54.76,
+        "elapsed_time_s": 1.0863200000000008,
+        "torque_squared_integral": 76.8926510266904,
+        "normalized_effort": 1.6915675971455342,
+        "absolute_work_j": 36.058208441243835
+      },
+      "common_success": {
+        "elapsed_steps": 54.80935251798561,
+        "elapsed_time_s": 1.0871870503597127,
+        "torque_squared_integral": 77.22251839284134,
+        "normalized_effort": 1.6977928311297485,
+        "absolute_work_j": 36.02636555113993
+      },
+      "success_wilson95": [
+        0.9873565700022643,
+        0.9999999999999999
+      ]
+    },
+    "efficient": {
+      "successes": 300,
+      "all_episodes": {
+        "elapsed_steps": 54.14,
+        "elapsed_time_s": 1.0734266666666672,
+        "torque_squared_integral": 74.64171462686363,
+        "normalized_effort": 1.7063858948219532,
+        "absolute_work_j": 45.001245056546736
+      },
+      "successful_episodes": {
+        "elapsed_steps": 54.14,
+        "elapsed_time_s": 1.0734266666666672,
+        "torque_squared_integral": 74.64171462686363,
+        "normalized_effort": 1.7063858948219532,
+        "absolute_work_j": 45.001245056546736
+      },
+      "common_success": {
+        "elapsed_steps": 54.068345323741006,
+        "elapsed_time_s": 1.0720935251798567,
+        "torque_squared_integral": 74.89319183657595,
+        "normalized_effort": 1.7120551001108195,
+        "absolute_work_j": 45.04212257047613
+      },
+      "success_wilson95": [
+        0.9873565700022643,
+        0.9999999999999999
+      ]
+    }
+  },
+  "paired_finetuned": {
+    "time": {
+      "elapsed_steps": 54.76,
+      "elapsed_time_s": 1.0863200000000008,
+      "torque_squared_integral": 76.8926510266904,
+      "normalized_effort": 1.6915675971455342,
+      "absolute_work_j": 36.058208441243835
+    },
+    "efficient": {
+      "elapsed_steps": 54.14,
+      "elapsed_time_s": 1.0734266666666672,
+      "torque_squared_integral": 74.64171462686363,
+      "normalized_effort": 1.7063858948219532,
+      "absolute_work_j": 45.001245056546736
+    }
+  }
+}

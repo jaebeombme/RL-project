@@ -1,0 +1,5 @@
+# Torque-controlled throwing and motion efficiency
+
+Approved in chat: learn shoulder/elbow torque and irreversible ball release with PPO. Focus on motion efficiency, not sample efficiency. Success requires entry through the rim and the whole ball clearing below it. Change hoop distance/height within the sagittal plane. Compare success-only shaping, added time cost, and added time plus control effort at identical dynamics/targets/seeds. Always log success, completion/release times, control steps, integral squared torque and absolute mechanical work. No claims of efficiency gains before experiments.
+
+Implementation decisions: preserve legacy position tasks; add a separate torque environment and experiment CLI. Normalized continuous 3D action with release > 0; bounded direct motor torque. Seeded per-episode goal sampling and explicit evaluation targets. Successful-only time statistics alongside unconditional success rate and all-episode costs. Same 0.02 s control / 0.002 s physics defaults. Torque limits are simulation defaults, not hardware specifications. Fork and feature branch only; no main commits or merge.

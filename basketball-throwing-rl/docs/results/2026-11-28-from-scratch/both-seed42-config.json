@@ -1,0 +1,67 @@
+{
+  "preset": "time",
+  "seed": 42,
+  "requested_timesteps": 1000000,
+  "environment": {
+    "episode_time": 2.0,
+    "control_dt": 0.02,
+    "target": [
+      1.25,
+      0.0,
+      0.9
+    ],
+    "target_x_range": [
+      1.0,
+      1.5
+    ],
+    "target_z_range": [
+      0.75,
+      1.1
+    ],
+    "torque_limits": [
+      8.0,
+      5.0
+    ],
+    "success_margin": 0.005,
+    "success_reward": 10.0,
+    "failure_penalty": 5.0,
+    "distance_weight": 0.4,
+    "time_weight": 0.1,
+    "effort_weight": 0.5,
+    "work_weight": 0.02
+  },
+  "ppo": {
+    "n_steps": 1024,
+    "batch_size": 256,
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "n_epochs": 10,
+    "clip_range": 0.2,
+    "ent_coef": 0.01,
+    "net_arch": [
+      128,
+      128
+    ],
+    "device": "cpu"
+  },
+  "observation_normalization": true,
+  "reward_normalization": false,
+  "git_commit": "7bb09e9754956640f28ae24cb1621a9d7482e433",
+  "versions": {
+    "mujoco": "3.17.0",
+    "gymnasium": "1.4.0",
+    "stable-baselines3": "2.9.2",
+    "numpy": "2.5.5",
+    "torch": "2.15.0"
+  },
+  "torch_threads": 1,
+  "initialization": {
+    "mode": "from_scratch",
+    "num_timesteps": 0,
+    "observation_count": 0.0001,
+    "policy_sha256": "0a982d2fc9170dd33a41486ffe216124d8b0004ced45bcda5cab718d61a60e1f"
+  },
+  "actual_timesteps": 1000448,
+  "wall_time_s": 3731.999996958999
+}

@@ -1,0 +1,54 @@
+<mujoco model="basketball_torque_2dof">
+  <compiler angle="radian" />
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="RK4" />
+  <default>
+    <joint damping="0.08" armature="0.01" limited="true" />
+    <geom density="600" friction="0.8 0.1 0.1" />
+  </default>
+  <worldbody>
+    <light pos="0 -3 4" dir="0 1 -1" />
+    <camera name="side" pos="0.85 -3.4 1.3" xyaxes="1 0 0 0 0 1" />
+    <geom name="floor" type="plane" size="4 4 0.1" rgba="0.8 0.8 0.8 1" />
+    <geom name="base_pedestal" type="cylinder" pos="0 0 0.055" size="0.065 0.055" rgba="0.20 0.20 0.22 1" contype="0" conaffinity="0" />
+    <body name="base" pos="0 0 0.12">
+      <geom type="sphere" size="0.055" rgba="0.2 0.2 0.2 1" />
+      <body name="link1">
+        <joint name="shoulder" type="hinge" axis="0 1 0" range="-2.6 2.6" />
+        <geom type="capsule" fromto="0 0 0 0.4 0 0" size="0.035" rgba="0.2 0.4 0.85 1" />
+        <body name="link2" pos="0.4 0 0">
+          <joint name="elbow" type="hinge" axis="0 1 0" range="-2.6 2.6" />
+          <geom type="capsule" fromto="0 0 0 0.35 0 0" size="0.03" rgba="0.25 0.65 0.9 1" />
+          <site name="hand" pos="0.35 0 0" size="0.02" rgba="1 1 0 1" />
+        </body>
+      </body>
+    </body>
+    <body name="ball" pos="0 0 0.95">
+      <freejoint name="ball_free" />
+      <geom name="ball_geom" type="sphere" size="0.045" mass="0.08" rgba="0.95 0.4 0.08 1" />
+    </body>
+    <body name="target" pos="1.25 0 0.90">
+      <geom name="rim_00" type="capsule" fromto="0.16000 0 0 0.13856 0.08000 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_01" type="capsule" fromto="0.13856 0.08000 0 0.08000 0.13856 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_02" type="capsule" fromto="0.08000 0.13856 0 0 0.16000 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_03" type="capsule" fromto="0 0.16000 0 -0.08000 0.13856 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_04" type="capsule" fromto="-0.08000 0.13856 0 -0.13856 0.08000 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_05" type="capsule" fromto="-0.13856 0.08000 0 -0.16000 0 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_06" type="capsule" fromto="-0.16000 0 0 -0.13856 -0.08000 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_07" type="capsule" fromto="-0.13856 -0.08000 0 -0.08000 -0.13856 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_08" type="capsule" fromto="-0.08000 -0.13856 0 0 -0.16000 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_09" type="capsule" fromto="0 -0.16000 0 0.08000 -0.13856 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_10" type="capsule" fromto="0.08000 -0.13856 0 0.13856 -0.08000 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <geom name="rim_11" type="capsule" fromto="0.13856 -0.08000 0 0.16000 0 0" size="0.012" rgba="0.9 0.25 0.1 1" />
+      <site name="hoop_entry_target" pos="0 0 0" size="0.014" rgba="0.1 0.95 0.2 0.9" />
+      <geom name="target_marker" type="sphere" size="0.018" contype="0" conaffinity="0" rgba="0.1 0.85 0.25 0.35" />
+    </body>
+  </worldbody>
+  <equality>
+    <!-- 0.35 link + 0.03 capsule + 0.045 ball + 0.005 gap: no launch impulse. -->
+    <weld name="hold_ball" body1="link2" body2="ball" active="true" relpose="0.43 0 0 1 0 0 0" solref="0.002 1" />
+  </equality>
+  <actuator>
+    <motor name="shoulder_torque" joint="shoulder" gear="1" ctrllimited="true" ctrlrange="-8 8" />
+    <motor name="elbow_torque" joint="elbow" gear="1" ctrllimited="true" ctrlrange="-8 8" />
+  </actuator>
+</mujoco>

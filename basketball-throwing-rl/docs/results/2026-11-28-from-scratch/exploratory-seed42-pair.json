@@ -1,0 +1,14 @@
+{
+  "seed": 42,
+  "common_success_count": 278,
+  "none": {
+    "elapsed_time_s": 1.143438848920864,
+    "normalized_effort": 1.348347325041374,
+    "absolute_work_j": 33.260632138192626
+  },
+  "torque": {
+    "elapsed_time_s": 1.1083741007194252,
+    "normalized_effort": 1.098698212566808,
+    "absolute_work_j": 29.279510824814235
+  }
+}
